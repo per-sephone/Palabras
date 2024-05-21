@@ -1,0 +1,29 @@
+package com.palabras.Palabras.repository;
+
+import com.palabras.Palabras.model.Translation;
+import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.stereotype.Repository;
+
+import java.util.List;
+
+@Repository
+@RequiredArgsConstructor(onConstructor_ = @Autowired)
+public class Repo{
+    private final MongoTemplate mongoTemplate;
+
+    public Translation insert(Translation translation){
+        return mongoTemplate.insert(translation);
+    }
+
+    public Translation save(Translation translation) {
+        return mongoTemplate.save(translation);
+    }
+
+    public List<Translation> findAll() {
+        return mongoTemplate.findAll(Translation.class);
+    }
+
+}
