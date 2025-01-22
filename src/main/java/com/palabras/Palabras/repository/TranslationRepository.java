@@ -17,12 +17,7 @@ public class TranslationRepository {
         return mongoTemplate.insert(translation);
     }
 
-    public Translation save(Translation translation) {
-        return mongoTemplate.save(translation);
-    }
-
     public List<Translation> findAll() {
         return mongoTemplate.findAll(Translation.class);
     }
-
 }
